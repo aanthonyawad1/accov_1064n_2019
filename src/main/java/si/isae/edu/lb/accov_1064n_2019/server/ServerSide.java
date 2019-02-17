@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package si.isae.edu.lb.accov_1064n_2019.server;
+import si.isae.edu.lb.accov_1064n_2019.server.controller.ServerKeyboardLink;
 import si.isae.edu.lb.accov_1064n_2019.server.model.ServerModel;
 import si.isae.edu.lb.accov_1064n_2019.server.util.Constants;
 
@@ -16,7 +17,7 @@ public class ServerSide {
     public static void main(String [] args) {
         final ServerModel serverModel = new ServerModel("server",Constants.MAIN_SERVER_PORT);
         System.out.println("Start");
-        Thread t = new Thread(new Runnable() {
+        new Thread(new Runnable() {
             @Override
             public void run() {
                 try {
@@ -25,20 +26,10 @@ public class ServerSide {
                     e.printStackTrace();
                 }
             }
-        });
-        t.start();
-        System.out.println("end");
-//          new Thread(new Runnable() {
-//            @Override
-//            public void run() {
-//                try{
-//                serverModel.talk(new Scanner(System.in));
-//                }catch(Exception e){
-//                    e.printStackTrace();
-//                }
-//            }
-//        }).start();
+        }).start();
+        new Thread(new ServerKeyboardLink(serverModel)).start();
 
+        System.out.println("end");
          
          
         

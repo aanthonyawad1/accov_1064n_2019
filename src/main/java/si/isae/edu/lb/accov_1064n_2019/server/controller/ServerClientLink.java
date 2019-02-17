@@ -1,8 +1,9 @@
-package si.isae.edu.lb.accov_1064n_2019.server.model;
+package si.isae.edu.lb.accov_1064n_2019.server.controller;
 
 import si.isae.edu.lb.accov_1064n_2019.client.model.ClientModel;
 import si.isae.edu.lb.accov_1064n_2019.client.model.ClientSocket;
 import si.isae.edu.lb.accov_1064n_2019.server.ServerCommands;
+import si.isae.edu.lb.accov_1064n_2019.server.model.ServerModel;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -62,14 +63,12 @@ public class ServerClientLink extends Thread{
             }
             if (currentModel.getCommand().equals(ServerCommands._SERVER_TO_CLIENT.toString())) {
                 System.out.println("sending message to client");
-                String message = serverModel.informAboutWho();
-                currentModel.setMessageFromServer(message);
+                //here the the model is set from the function sendMessageFromServer
                 sendDataToClient();
                 System.out.println("end sending message client");
                 currentModel.setCommand(ServerCommands._UNKNOWN.toString());
                 continue;
             }
-
             //we set the status to unknown so we don't enter in the other statuses
             //else we stay in the while connected
         }

@@ -12,6 +12,7 @@ import java.util.Scanner;
 import si.isae.edu.lb.accov_1064n_2019.client.model.ClientModel;
 import si.isae.edu.lb.accov_1064n_2019.client.model.ClientSocket;
 import si.isae.edu.lb.accov_1064n_2019.server.ServerCommands;
+import si.isae.edu.lb.accov_1064n_2019.server.controller.ServerClientLink;
 
 /**
  *
@@ -72,30 +73,6 @@ public class ServerModel {
         }
     }
 
-    //  todo this might change
-    public void talk(Scanner keyboard){
-        while(true){
-            //set the string working command
-            synchronized(sync){
-                String message = keyboard.next();
-                if(message.equals(ServerCommands._KILL.toString())){
-//                  todo logic
-                    continue;
-                }
-                if(message.equals(ServerCommands._SHUTDOWN.toString())){
-//                  todo logic
-                    continue;
-                }
-                if(message.equals(ServerCommands._WHO.toString())){
-//                  todo logic
-                    continue;
-                }
-            }
-        }
-    }
-
-
-
     //these 3 functions stay here because they talk with other users
     public void informAboutNewClient(String clientName){
         for(ServerClientLink client: this.clientsLinks){
@@ -146,6 +123,44 @@ public class ServerModel {
             if(clientLink.getClientSocket().getClientModel().getName().equals(name)){
                 clientsLinks.remove(clientLink);
             }
+        }
+    }
+
+    public void killClientByName(String name) {
+        boolean found = false;
+        for(ServerClientLink clientLink : clientsLinks){
+            if(clientLink.getClientSocket().getClientModel().getName().equals(name)){
+                found =true;
+
+                clientLink.sendMessageFromServer("Sorry but i was forced to kill you");
+
+                clientLink.getClientSocket().closeSocket();
+                break;
+            }
+        }
+        if(found)
+            this.informAbouteftClient(name);
+    }
+
+    public void disconnectAllActiveThreadsThenDie() {
+        // inform all the sockets that i am dying
+        for(ServerClientLink client: this.clientsLinks){
+            if(client.isAlive()){
+                client.sendMessageFromServer("say bye to me im dying");
+            }
+        }
+        //disconnect all running threads
+        for(ServerClientLink client: this.clientsLinks){
+            if(client.isAlive()){
+                client.getClientSocket().closeSocket();
+            }
+        }
+
+        // server die
+        try {
+            serverSocket.close();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }

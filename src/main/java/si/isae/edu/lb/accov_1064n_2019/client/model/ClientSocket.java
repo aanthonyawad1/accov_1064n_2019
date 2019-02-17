@@ -5,6 +5,7 @@
  */
 package si.isae.edu.lb.accov_1064n_2019.client.model;
 
+import java.io.EOFException;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -46,7 +47,6 @@ public class ClientSocket{
     
     public ClientSocket(ClientModel clientModel) throws IOException{
         this.clientModel = clientModel;
-        
     }
     
     
@@ -135,6 +135,8 @@ public class ClientSocket{
             //todo check if old message
             System.out.println("the server says:\n + "+c.getMessageFromServer());
 
+        } catch (EOFException e) {
+//            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
@@ -143,6 +145,7 @@ public class ClientSocket{
 //            e.printStackTrace();
 //            we just catch it here normal behavior to rewind the while in the thread //todo check if logic correct
         }
+
     }
 
     //get socket readers and writers from DR pascal course youtube

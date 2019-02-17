@@ -14,7 +14,7 @@ public enum ServerCommands {
     _CONNECT("_connect"),
     _QUIT("_quit"),
     _SHUTDOWN("_shutdown"),
-    _KILL("_kill"),
+    _KILL("_quit"),
     _TALK("_talk"),
     _SERVER_TO_CLIENT("_server_to_client"),
     _WHO("_who");

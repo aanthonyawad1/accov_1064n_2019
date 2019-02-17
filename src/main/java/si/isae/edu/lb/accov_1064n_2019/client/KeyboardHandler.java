@@ -19,7 +19,7 @@ import si.isae.edu.lb.accov_1064n_2019.client.util.ClientUtils;
  */
 public class KeyboardHandler implements Runnable{
     private CommandsIface commandsIface;
-    private Object sync = new Object(); ;
+    private Object sync = new Object();
     private String command="";
     private Scanner keyboard;
     private ClientSocket clientSocket;
