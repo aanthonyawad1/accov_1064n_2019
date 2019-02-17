@@ -81,7 +81,7 @@ public class ClientModel implements Serializable , Comparable<String>{
     }
 
     
-    // never foget to FLUSH hihihihi to quit the network when sending data  TODO          
+    // never foget to FLUSH hihihihi to quit the network when sending data
     public ClientModel(){
         this.isConnected = false;
         

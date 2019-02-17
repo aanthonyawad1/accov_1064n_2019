@@ -9,6 +9,8 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
+
+import si.isae.edu.lb.accov_1064n_2019.client.Exceptions.MessageNotRecievedException;
 import si.isae.edu.lb.accov_1064n_2019.server.ServerCommands;
 
 /**
@@ -18,6 +20,7 @@ import si.isae.edu.lb.accov_1064n_2019.server.ServerCommands;
 public class ClientSocket{
     private ClientModel clientModel;
     private Socket socket;
+    private Object sync = new Object();
 
     public Socket getSocket() {
         return socket;
@@ -35,7 +38,7 @@ public class ClientSocket{
         this.clientModel = clientModel;
     }
     
-    //this constructor will be used in the server for persistance
+    //this constructor will be used in the server for persistence
     public ClientSocket(ClientModel clientModel , Socket socket){
         this.clientModel = clientModel;
         this.socket = socket;
@@ -95,7 +98,7 @@ public class ClientSocket{
          try {
             this.clientModel.setCommand(ServerCommands._WHO.toString());
             socket = new Socket(clientModel.getMachine(),Integer.parseInt(clientModel.getPort()));
-            this.informServer(this.clientModel.getName() +" requested who");
+             this.informServer(this.clientModel.getName() +" requested who");
             
             ObjectInputStream ois = getInput();
              try {
@@ -118,17 +121,44 @@ public class ClientSocket{
             ex.printStackTrace();
         }
     }
+
+    //todo figure out how use this funct needs to run in a thread alone always waiting for a message
+    public void readUnrequestedServerMessage(){
+        try {
+
+            if(socket == null)throw new MessageNotRecievedException();
+            ObjectInputStream ois =  getInput();
+            ClientModel c= (ClientModel)ois.readObject();
+
+            if(c == null || c.getMessageFromServer() == null || c.getMessageFromServer().length() <= 0)
+                throw new MessageNotRecievedException();
+            //todo check if old message
+            System.out.println("the server says:\n + "+c.getMessageFromServer());
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (MessageNotRecievedException e) {
+//            e.printStackTrace();
+//            we just catch it here normal behavior to rewind the while in the thread //todo check if logic correct
+        }
+    }
+
     //get socket readers and writers from DR pascal course youtube
     public ObjectInputStream getInput() throws IOException {
         return new ObjectInputStream(
                 socket.getInputStream());
     }
-    
-        //changed in it so i can send the object ClientModel
-        public ObjectOutputStream getOutput()throws IOException{
-            return new ObjectOutputStream(
-                    socket.getOutputStream());
-        }
-    
-    
+
+    //changed in it so i can send the object ClientModel
+    public ObjectOutputStream getOutput()throws IOException{
+        return new ObjectOutputStream(
+                socket.getOutputStream());
+    }
+
+
+    public Object getSync() {
+        return sync;
+    }
 }

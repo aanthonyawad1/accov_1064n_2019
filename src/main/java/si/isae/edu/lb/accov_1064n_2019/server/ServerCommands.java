@@ -16,6 +16,7 @@ public enum ServerCommands {
     _SHUTDOWN("_shutdown"),
     _KILL("_kill"),
     _TALK("_talk"),
+    _SERVER_TO_CLIENT("_server_to_client"),
     _WHO("_who");
     
     private final String command;

@@ -9,25 +9,23 @@ import java.io.IOException;
 import si.isae.edu.lb.accov_1064n_2019.client.controller.ClientController;
 import si.isae.edu.lb.accov_1064n_2019.client.model.ClientModel;
 import si.isae.edu.lb.accov_1064n_2019.client.model.ClientSocket;
-import si.isae.edu.lb.accov_1064n_2019.client.runnables.UnrequestedServerMessageRunnable;
 
 
 /**
  *
  * @author Aanthony
- * main test test
+ * test test test
  */
-public class ClientSide {
-    
+public class ClientSide3 {
+
     public static void main(String args[]) throws IOException{
         ClientController clientController = new ClientController();
         ClientModel model = new ClientModel();
         ClientSocket clientSocket = new ClientSocket(model);
-       
+
         Thread keyboardThread = new Thread(new KeyboardHandler(clientController,clientSocket));
-        Thread UnrequestedServerMessageThread = new Thread(new UnrequestedServerMessageRunnable(clientSocket));
+
         keyboardThread.start();
-        UnrequestedServerMessageThread.start();
     }
 
 }
