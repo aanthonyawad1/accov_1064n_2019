@@ -5,7 +5,6 @@
  */
 package si.isae.edu.lb.accov_1064n_2019.server.interfaces;
 
-import si.isae.edu.lb.accov_1064n_2019.client.model.ClientModel;
 import si.isae.edu.lb.accov_1064n_2019.client.model.ClientSocket;
 import si.isae.edu.lb.accov_1064n_2019.server.model.ServerModel;
 
@@ -17,7 +16,7 @@ public interface CommandsIface {
     
     public void _connectClient(ClientSocket clientSocket,ServerModel serverModel);
     public void _shutDownServer(ServerModel serverModel);
-    public void _quitClient(ServerModel serverModel);
+    public void _quitClient(ServerModel serverModel, ClientSocket clientSocket);
     public void _killClient(ClientSocket clientSocket,ServerModel serverModel);
     public void _whoClient(ServerModel serverModel, ClientSocket clientSocket);
     public void _whoServer(ServerModel serverModel);

@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package si.isae.edu.lb.accov_1064n_2019.server;
-import java.util.Scanner;
 import si.isae.edu.lb.accov_1064n_2019.server.model.ServerModel;
 import si.isae.edu.lb.accov_1064n_2019.server.util.Constants;
 
@@ -17,7 +16,7 @@ public class ServerSide {
     public static void main(String [] args) {
         final ServerModel serverModel = new ServerModel("server",Constants.MAIN_SERVER_PORT);
         System.out.println("Start");
-        new Thread(new Runnable() {
+        Thread t = new Thread(new Runnable() {
             @Override
             public void run() {
                 try {
@@ -26,7 +25,8 @@ public class ServerSide {
                     e.printStackTrace();
                 }
             }
-        }).start(); 
+        });
+        t.start();
         System.out.println("end");
 //          new Thread(new Runnable() {
 //            @Override

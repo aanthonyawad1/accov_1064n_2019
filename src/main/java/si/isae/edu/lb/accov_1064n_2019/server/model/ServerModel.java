@@ -8,8 +8,6 @@ package si.isae.edu.lb.accov_1064n_2019.server.model;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
@@ -108,7 +106,9 @@ public class ServerModel {
                     //new user todo for loop to check the name
                     System.out.println("connecting client");
                     commandsIface._connectClient(clientSocket,this);
+                    clientSocket.getSocket().setKeepAlive(true);
                     System.out.println("after connecting client");
+                    System.out.println("clients size:"+clients.size());
                     continue;
                 }
                 
@@ -116,13 +116,15 @@ public class ServerModel {
                     //list users
                     System.out.println("who client");
                     commandsIface._whoClient(this,clientSocket);
+                    clientSocket.quitServer();
+                    clientSocket.getSocket().setKeepAlive(false);
                     System.out.println("who client");
                     continue;
                 }
                 
                 if(currentModel.getCommand().equals(ServerCommands._QUIT.toString())){
-                    //list users
-                    commandsIface._quitClient(this);
+                    commandsIface._quitClient(this,clientSocket);
+                    clientSocket.quitServer();
                     continue;
                 }
             }
@@ -159,15 +161,22 @@ public class ServerModel {
        }
     }
     
+    public void informAbouteftClient(String clientName) {
+        for(ClientSocket client: this.clients){
+           client.getClientModel().setMessageFromServer("client left "+ clientName);
+           this.sendDataToClient(client);
+       }
+    }
     
     public void informAboutWho(ClientSocket clientSocket){
-        String messageFromServer ="The server contains :{ ";
+        String messageFromServer ="The server contains:";
         int i =0 ;
         for(ClientSocket client: this.clients){
+        if(i%5 == 0)messageFromServer+="\n";
+        if(i == 0)messageFromServer+="{ ";
         messageFromServer+=client.getClientModel().getName();
-        if(i == clients.size()) messageFromServer+="}";
+        if(i == clients.size()-1) messageFromServer+=" }";
         else messageFromServer+=" , ";
-        if(i%5 == 0 )messageFromServer+="\n";
         i++;
         }
         clientSocket.getClientModel().setMessageFromServer(messageFromServer);
@@ -194,5 +203,6 @@ public class ServerModel {
         public ObjectOutputStream getOutput(Socket clientSocket)throws IOException{
             return new ObjectOutputStream(clientSocket.getOutputStream());
         }
-    
+
+ 
 }

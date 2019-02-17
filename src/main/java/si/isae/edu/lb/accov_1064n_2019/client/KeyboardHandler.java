@@ -75,9 +75,11 @@ public class KeyboardHandler implements Runnable{
         commandsIface._connect(clientSocket);
     } catch (AlreadyConnected ex) {
         System.out.println(ex.toString());
+        clientSocket.getClientModel().setIsConnected(true);
     }
     catch(FailedToConnectException ex){
         System.out.println(ex.toString());
+        clientSocket.getClientModel().setIsConnected(false);
     }
     }
     

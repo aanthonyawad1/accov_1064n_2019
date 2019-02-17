@@ -24,17 +24,24 @@ public class ServerController implements CommandsIface{
 
     @Override
     public void _shutDownServer(ServerModel serverModel) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
     }
 
     @Override
-    public void _quitClient(ServerModel serverModel) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void _quitClient(ServerModel serverModel, ClientSocket clientSocket) {
+        for(ClientSocket client : serverModel.getClients()){
+            ClientModel clientModel = client.getClientModel();
+            if(clientModel.getName().equals(clientSocket.getClientModel().getName())){
+                serverModel.getClients().remove(client);
+                break;
+            }
+        }
+        serverModel.informAbouteftClient(clientSocket.getClientModel().getName());
     }
 
     @Override
     public void _killClient(ClientSocket clientSocket, ServerModel serverModel) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
@@ -44,7 +51,7 @@ public class ServerController implements CommandsIface{
 
     @Override
     public void _whoServer(ServerModel serverModel) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
   

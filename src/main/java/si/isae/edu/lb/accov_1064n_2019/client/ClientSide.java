@@ -21,7 +21,9 @@ public class ClientSide {
         ClientController clientController = new ClientController();
         ClientModel model = new ClientModel();
         ClientSocket clientSocket = new ClientSocket(model);
+       
         Thread keyboardThread = new Thread(new KeyboardHandler(clientController,clientSocket));
+        
         keyboardThread.start();    
     }
 

@@ -11,7 +11,6 @@ import si.isae.edu.lb.accov_1064n_2019.client.Exceptions.NotConnected;
 import si.isae.edu.lb.accov_1064n_2019.client.interfaces.CommandsIface;
 import si.isae.edu.lb.accov_1064n_2019.client.model.ClientModel;
 import si.isae.edu.lb.accov_1064n_2019.client.model.ClientSocket;
-import si.isae.edu.lb.accov_1064n_2019.server.ServerCommands;
 
 /**
  *
@@ -20,9 +19,8 @@ import si.isae.edu.lb.accov_1064n_2019.server.ServerCommands;
 public class ClientController implements CommandsIface{
     @Override
     public void _connect(ClientSocket clientSocket) throws AlreadyConnected, FailedToConnectException {
-        clientSocket.getClientModel().setCommand(ServerCommands._CONNECT.toString());
-        if(clientSocket.getClientModel().isIsConnected() == false)clientSocket.getClientModel().setIsConnected(true);
-        else throw new AlreadyConnected();
+        if(!clientSocket.getClientModel().isIsConnected() == false){throw new AlreadyConnected();}
+         
         System.out.println("initialising connection");
 
         if(clientSocket.connectToServer()){
@@ -30,6 +28,7 @@ public class ClientController implements CommandsIface{
                     clientSocket.getClientModel().getName() +
                     " sur la machine: "+clientSocket.getClientModel().getMachine()
                     +" avec le port: "+clientSocket.getClientModel().getPort());
+            clientSocket.getClientModel().setIsConnected(true);
         }else{
             throw  new FailedToConnectException();
         }

@@ -5,9 +5,8 @@
  */
 package si.isae.edu.lb.accov_1064n_2019.client.model;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
 import si.isae.edu.lb.accov_1064n_2019.server.ServerCommands;
@@ -27,6 +26,7 @@ public class ClientSocket{
     public void setSocket(Socket socket) {
         this.socket = socket;
     }
+    
     public ClientModel getClientModel() {
         return clientModel;
     }
@@ -49,6 +49,7 @@ public class ClientSocket{
     
     public boolean connectToServer() {
         try {
+            clientModel.setCommand(ServerCommands._CONNECT.toString());
             socket = new Socket(clientModel.getMachine(),Integer.parseInt(clientModel.getPort()));
             System.out.println("socket.get local address " +socket.getLocalAddress());
            this.informServer("hello i am "+ this.clientModel.getName());
@@ -62,14 +63,18 @@ public class ClientSocket{
     
     public boolean quitServer(){
         try {
+            socket = new Socket(clientModel.getMachine(),Integer.parseInt(clientModel.getPort()));
             this.clientModel.setCommand(ServerCommands._QUIT.toString());
             this.informServer("Bye bye");
         } catch (IOException ex) {
             ex.printStackTrace();
         }
         try {
-            if(this.socket!= null)
+            if(this.socket!= null){
+                getOutput().close();
+                getInput().close();
                 this.socket.close();
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -87,18 +92,16 @@ public class ClientSocket{
     public void getWhoFromServer(){
          try {
             this.clientModel.setCommand(ServerCommands._WHO.toString());
+            socket = new Socket(clientModel.getMachine(),Integer.parseInt(clientModel.getPort()));
             this.informServer(this.clientModel.getName() +" requested who");
             
-            BufferedReader bufferedReader = getInput();
-            String message = "";
-            
-//            while(true){
-//            try{
-            message+=bufferedReader.readLine();
-            System.out.println(bufferedReader.readLine());
-//            }catch(Exception e){break;}
-//            }
-             System.out.println(message);
+            ObjectInputStream ois = getInput();
+             try {
+                 clientModel = (ClientModel)ois.readObject();
+                 System.out.println(clientModel.getMessageFromServer());
+             } catch (ClassNotFoundException ex) {
+                 ex.printStackTrace();
+             }
         } catch (IOException ex) {
             ex.printStackTrace();
         }
@@ -114,9 +117,9 @@ public class ClientSocket{
         }
     }
     //get socket readers and writers from DR pascal course youtube
-    public BufferedReader getInput() throws IOException {
-        return new BufferedReader(new InputStreamReader(
-                socket.getInputStream()));
+    public ObjectInputStream getInput() throws IOException {
+        return new ObjectInputStream(
+                socket.getInputStream());
     }
     
         //changed in it so i can send the object ClientModel
