@@ -62,7 +62,7 @@ public class KeyboardHandler implements Runnable{
         System.out.println("quelle est ta machine?");
         String machine = keyboard.next();
         int port = 0;
-        while(true){
+        while(true){//todo fix keyboard infinite next int  System.out.println
             System.out.println("quelle est ta port (integer please)?");
             try{
                 port = keyboard.nextInt();

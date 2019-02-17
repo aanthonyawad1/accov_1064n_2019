@@ -69,18 +69,20 @@ public class ClientSocket{
         } catch (IOException ex) {
             ex.printStackTrace();
         }
+        return true;
+    }
+
+    public boolean closeSocket(){
         try {
             if(this.socket!= null){
-                getOutput().close();
-                getInput().close();
                 this.socket.close();
             }
         } catch (Exception e) {
             e.printStackTrace();
+            return false;
         }
         return true;
     }
-    
     
     public void informServer(String message) throws IOException{
         clientModel.setMessageToServer(message);

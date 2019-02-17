@@ -106,7 +106,7 @@ public class ServerModel {
                     //new user todo for loop to check the name
                     System.out.println("connecting client");
                     commandsIface._connectClient(clientSocket,this);
-                    clientSocket.getSocket().setKeepAlive(true);
+
                     System.out.println("after connecting client");
                     System.out.println("clients size:"+clients.size());
                     continue;
@@ -116,15 +116,14 @@ public class ServerModel {
                     //list users
                     System.out.println("who client");
                     commandsIface._whoClient(this,clientSocket);
-                    clientSocket.quitServer();
-                    clientSocket.getSocket().setKeepAlive(false);
+                    clientSocket.closeSocket();
                     System.out.println("who client");
                     continue;
                 }
                 
                 if(currentModel.getCommand().equals(ServerCommands._QUIT.toString())){
                     commandsIface._quitClient(this,clientSocket);
-                    clientSocket.quitServer();
+                    clientSocket.closeSocket();
                     continue;
                 }
             }
