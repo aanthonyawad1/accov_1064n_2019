@@ -15,7 +15,7 @@ import si.isae.edu.lb.accov_1064n_2019.client.runnables.UnrequestedServerMessage
 /**
  *
  * @author Aanthony
- * main test test
+ * main test test should be done the client part
  */
 public class ClientSide {
     

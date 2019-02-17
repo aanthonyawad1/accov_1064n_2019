@@ -79,6 +79,7 @@ public class ClientSocket{
         try {
             if(this.socket!= null){
                 this.socket.close();
+                clientModel.setIsConnected(false);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -125,7 +126,6 @@ public class ClientSocket{
     //todo figure out how use this funct needs to run in a thread alone always waiting for a message
     public void readUnrequestedServerMessage(){
         try {
-
             if(socket == null)throw new MessageNotRecievedException();
             ObjectInputStream ois =  getInput();
             ClientModel c= (ClientModel)ois.readObject();
@@ -133,7 +133,7 @@ public class ClientSocket{
             if(c == null || c.getMessageFromServer() == null || c.getMessageFromServer().length() <= 0)
                 throw new MessageNotRecievedException();
             //todo check if old message
-            System.out.println("the server says:\n + "+c.getMessageFromServer());
+            System.out.println("the server says:\n"+c.getMessageFromServer());
 
         } catch (EOFException e) {
 //            e.printStackTrace();

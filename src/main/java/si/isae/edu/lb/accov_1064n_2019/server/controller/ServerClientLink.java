@@ -56,22 +56,23 @@ public class ServerClientLink extends Thread{
             }
 
             if (currentModel.getCommand().equals(ServerCommands._QUIT.toString())) {
+                serverModel.informAbouteftClient(clientSocket.getClientModel().getName());
                 clientSocket.closeSocket();
                 serverModel.removeClosedSocket(clientSocket.getClientModel().getName());
-                serverModel.informAbouteftClient(clientSocket.getClientModel().getName());
                 continue;
             }
             if (currentModel.getCommand().equals(ServerCommands._SERVER_TO_CLIENT.toString())) {
-                System.out.println("sending message to client");
+                System.out.println("sending message to client" + currentModel.getName());
                 //here the the model is set from the function sendMessageFromServer
                 sendDataToClient();
-                System.out.println("end sending message client");
+                System.out.println("end sending message client" + currentModel.getName());
                 currentModel.setCommand(ServerCommands._UNKNOWN.toString());
                 continue;
             }
             //we set the status to unknown so we don't enter in the other statuses
             //else we stay in the while connected
         }
+
     }
 
 
@@ -105,5 +106,9 @@ public class ServerClientLink extends Thread{
 
     public ClientSocket getClientSocket() {
         return clientSocket;
+    }
+
+    public void kill() {
+        this.isConnected = false;
     }
 }

@@ -8,6 +8,7 @@ import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.concurrent.*;
 
 import si.isae.edu.lb.accov_1064n_2019.client.model.ClientModel;
 import si.isae.edu.lb.accov_1064n_2019.client.model.ClientSocket;
@@ -121,6 +122,7 @@ public class ServerModel {
     public void removeClosedSocket(String name) {
         for(ServerClientLink clientLink : clientsLinks){
             if(clientLink.getClientSocket().getClientModel().getName().equals(name)){
+                if(clientLink.isAlive()){clientLink.kill();}
                 clientsLinks.remove(clientLink);
             }
         }
@@ -128,12 +130,14 @@ public class ServerModel {
 
     public void killClientByName(String name) {
         boolean found = false;
-        for(ServerClientLink clientLink : clientsLinks){
+        for(final ServerClientLink clientLink : clientsLinks){
             if(clientLink.getClientSocket().getClientModel().getName().equals(name)){
                 found =true;
 
                 clientLink.sendMessageFromServer("Sorry but i was forced to kill you");
-
+                //we sleep so we dont get error while writing on the thread
+                try{TimeUnit.SECONDS.sleep(2);}catch (Exception e){}
+                clientsLinks.remove(clientLink);
                 clientLink.getClientSocket().closeSocket();
                 break;
             }

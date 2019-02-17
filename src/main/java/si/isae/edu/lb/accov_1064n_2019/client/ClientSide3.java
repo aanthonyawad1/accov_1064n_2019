@@ -15,7 +15,7 @@ import si.isae.edu.lb.accov_1064n_2019.client.runnables.UnrequestedServerMessage
 /**
  *
  * @author Aanthony
- * test test test
+ * test test test this is here because intellij community is stupid and i like to use it and its faster in dev
  */
 public class ClientSide3 {
 
