@@ -1,23 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="977ffd64-76c8-4ba9-bce9-5135d2b6066f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/si/isae/edu/lb/accov_1064n_2019/client/Exceptions/MessageNotRecievedException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/si/isae/edu/lb/accov_1064n_2019/client/runnables/UnrequestedServerMessageRunnable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/si/isae/edu/lb/accov_1064n_2019/server/model/ServerClientLink.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/si/isae/edu/lb/accov_1064n_2019/client/ClientSide.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/si/isae/edu/lb/accov_1064n_2019/client/ClientSide.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/si/isae/edu/lb/accov_1064n_2019/client/ClientSide2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/si/isae/edu/lb/accov_1064n_2019/client/ClientSide2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/si/isae/edu/lb/accov_1064n_2019/client/ClientSide3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/si/isae/edu/lb/accov_1064n_2019/client/ClientSide3.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/si/isae/edu/lb/accov_1064n_2019/client/model/ClientSocket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/si/isae/edu/lb/accov_1064n_2019/client/model/ClientSocket.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/si/isae/edu/lb/accov_1064n_2019/server/ServerCommands.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/si/isae/edu/lb/accov_1064n_2019/server/ServerCommands.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/si/isae/edu/lb/accov_1064n_2019/server/ServerSide.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/si/isae/edu/lb/accov_1064n_2019/server/ServerSide.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/si/isae/edu/lb/accov_1064n_2019/server/controller/ServerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/si/isae/edu/lb/accov_1064n_2019/server/controller/ServerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/si/isae/edu/lb/accov_1064n_2019/server/model/ServerModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/si/isae/edu/lb/accov_1064n_2019/server/model/ServerModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/si/isae/edu/lb/accov_1064n_2019/server/model/ServerModelV2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/si/isae/edu/lb/accov_1064n_2019/server/model/ServerModelV2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todoList" beforeDir="false" afterPath="$PROJECT_DIR$/todoList" afterDir="false" />
-    </list>
+    <list default="true" id="977ffd64-76c8-4ba9-bce9-5135d2b6066f" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -28,22 +12,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/si/isae/edu/lb/accov_1064n_2019/server/model/ServerModel.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="133" selection-start-line="133" selection-end-line="153" selection-end-column="5" />
-              <folding>
-                <element signature="method#listen#0;class#ServerModel#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/si/isae/edu/lb/accov_1064n_2019/server/model/ServerClientLink.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="219">
-              <caret line="29" column="48" lean-forward="true" selection-start-line="29" selection-start-column="48" selection-end-line="29" selection-end-column="48" />
+            <state relative-caret-position="134">
+              <caret line="28" column="48" selection-start-line="28" selection-start-column="48" selection-end-line="28" selection-end-column="48" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#4204#4205#0" expanded="true" />
@@ -53,11 +25,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/si/isae/edu/lb/accov_1064n_2019/server/model/ServerModelV2.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/si/isae/edu/lb/accov_1064n_2019/server/model/ServerModel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="256">
-              <caret line="31" column="4" selection-start-line="31" selection-start-column="4" selection-end-line="31" selection-end-column="4" />
+            <state relative-caret-position="323">
+              <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1136#1137#0" expanded="true" />
@@ -71,8 +43,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/si/isae/edu/lb/accov_1064n_2019/server/ServerSide.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="24" column="22" selection-start-line="24" selection-start-column="22" selection-end-line="24" selection-end-column="22" />
+            <state relative-caret-position="100">
+              <caret line="16" column="20" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="20" />
               <folding>
                 <element signature="e#651#908#0" expanded="true" />
                 <element signature="e#907#908#0" expanded="true" />
@@ -85,7 +57,16 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/si/isae/edu/lb/accov_1064n_2019/client/ClientSide2.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="289">
-              <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
+              <caret line="25" selection-start-line="25" selection-end-line="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/si/isae/edu/lb/accov_1064n_2019/client/ClientSide3.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="16" column="17" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -144,17 +125,27 @@
         <option value="$PROJECT_DIR$/src/main/java/si/isae/edu/lb/accov_1064n_2019/server/model/ServerModelLink.java" />
         <option value="$PROJECT_DIR$/src/main/java/si/isae/edu/lb/accov_1064n_2019/server/controller/ServerController.java" />
         <option value="$PROJECT_DIR$/src/main/java/si/isae/edu/lb/accov_1064n_2019/server/ServerCommands.java" />
-        <option value="$PROJECT_DIR$/src/main/java/si/isae/edu/lb/accov_1064n_2019/server/ServerSide.java" />
         <option value="$PROJECT_DIR$/src/main/java/si/isae/edu/lb/accov_1064n_2019/client/ClientSide2.java" />
         <option value="$PROJECT_DIR$/todoList" />
-        <option value="$PROJECT_DIR$/src/main/java/si/isae/edu/lb/accov_1064n_2019/server/model/ServerClientLink.java" />
         <option value="$PROJECT_DIR$/src/main/java/si/isae/edu/lb/accov_1064n_2019/server/model/ServerModelV2.java" />
+        <option value="$PROJECT_DIR$/src/main/java/si/isae/edu/lb/accov_1064n_2019/server/model/ServerClientLink.java" />
+        <option value="$PROJECT_DIR$/src/main/java/si/isae/edu/lb/accov_1064n_2019/server/ServerSide.java" />
       </list>
     </option>
   </component>
   <component name="MavenProjectNavigator">
     <treeState>
-      <expand />
+      <expand>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="accov_1064n_2019" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="accov_1064n_2019" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
+        </path>
+      </expand>
       <select />
     </treeState>
   </component>
@@ -229,13 +220,6 @@
               <item name="accov_1064n_2019" type="616d4139:PackageViewModuleNode" />
               <item name="si.isae.edu.lb.accov_1064n_2019" type="1f31426a:PackageElementNode" />
               <item name="server" type="1f31426a:PackageElementNode" />
-              <item name="interfaces" type="1f31426a:PackageElementNode" />
-            </path>
-            <path>
-              <item name="accov_1064n_2019" type="58d84e3e:PackageViewProjectNode" />
-              <item name="accov_1064n_2019" type="616d4139:PackageViewModuleNode" />
-              <item name="si.isae.edu.lb.accov_1064n_2019" type="1f31426a:PackageElementNode" />
-              <item name="server" type="1f31426a:PackageElementNode" />
               <item name="model" type="1f31426a:PackageElementNode" />
             </path>
           </expand>
@@ -245,7 +229,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550422410117" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550422493683" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -346,7 +330,14 @@
       <option name="project" value="LOCAL" />
       <updated>1550405921955</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="-version 4 changed server model and created ServerClientLink">
+      <created>1550422600658</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1550422600658</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TodoView" selected-index="2">
@@ -370,21 +361,21 @@
       <window_info id="Capture Tool" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49946696" visible="true" weight="0.32936078" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.56929636" weight="0.31527627" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.4989339" weight="0.32936078" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.5687633" weight="0.31527627" />
       <window_info anchor="bottom" id="Version Control" order="3" sideWeight="0.4978678" weight="0.39328277" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49840087" weight="0.35102925" />
       <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49733475" weight="0.3206934" />
-      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.50053304" side_tool="true" visible="true" weight="0.32936078" />
+      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.5010661" side_tool="true" visible="true" weight="0.31527627" />
       <window_info anchor="bottom" id="Messages" order="9" sideWeight="0.49946696" weight="0.32936078" />
       <window_info anchor="bottom" id="Debug" order="10" sideWeight="0.48933902" weight="0.31852654" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Maven" order="4" weight="0.32995737" />
+      <window_info anchor="right" id="Maven" order="4" visible="true" weight="0.32995737" />
       <window_info anchor="right" id="Theme Preview" order="5" />
       <window_info anchor="right" id="Capture Analysis" order="6" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
@@ -431,20 +422,12 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="version 3 fixed _quit and _who issue" />
-    <option name="LAST_COMMIT_MESSAGE" value="version 3 fixed _quit and _who issue" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/si/isae/edu/lb/accov_1064n_2019/server/model/ServerModel.java</url>
-          <line>186</line>
-          <properties />
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="version 4 changed the lofic of the serverModel now uses real threading" />
+    <MESSAGE value="-version 4 changed server model and created ServerClientLink" />
+    <option name="LAST_COMMIT_MESSAGE" value="-version 4 changed server model and created ServerClientLink" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -508,13 +491,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/si/isae/edu/lb/accov_1064n_2019/client/ClientSide3.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="16" column="17" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/si/isae/edu/lb/accov_1064n_2019/client/runnables/UnrequestedServerMessageRunnable.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -526,13 +502,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="338">
           <caret line="605" column="52" selection-start-line="605" selection-start-column="43" selection-end-line="605" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/si/isae/edu/lb/accov_1064n_2019/server/interfaces/CommandsIface.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="16" column="14" selection-start-line="16" selection-start-column="14" selection-end-line="16" selection-end-column="14" />
         </state>
       </provider>
     </entry>
@@ -571,13 +540,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/si/isae/edu/lb/accov_1064n_2019/client/ClientSide2.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/si/isae/edu/lb/accov_1064n_2019/server/model/ServerModel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -588,21 +550,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/si/isae/edu/lb/accov_1064n_2019/server/ServerSide.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/si/isae/edu/lb/accov_1064n_2019/server/interfaces/CommandsIface.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="24" column="22" selection-start-line="24" selection-start-column="22" selection-end-line="24" selection-end-column="22" />
-          <folding>
-            <element signature="e#651#908#0" expanded="true" />
-            <element signature="e#907#908#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="187">
+          <caret line="15" column="14" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/si/isae/edu/lb/accov_1064n_2019/server/model/ServerClientLink.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="219">
-          <caret line="29" column="48" lean-forward="true" selection-start-line="29" selection-start-column="48" selection-end-line="29" selection-end-column="48" />
+        <state relative-caret-position="134">
+          <caret line="28" column="48" selection-start-line="28" selection-start-column="48" selection-end-line="28" selection-end-column="48" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#4204#4205#0" expanded="true" />
@@ -611,16 +569,41 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/si/isae/edu/lb/accov_1064n_2019/server/model/ServerModelV2.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/si/isae/edu/lb/accov_1064n_2019/server/ServerSide.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="31" column="4" selection-start-line="31" selection-start-column="4" selection-end-line="31" selection-end-column="4" />
+        <state relative-caret-position="100">
+          <caret line="16" column="20" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="20" />
+          <folding>
+            <element signature="e#651#908#0" expanded="true" />
+            <element signature="e#907#908#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/si/isae/edu/lb/accov_1064n_2019/server/model/ServerModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1136#1137#0" expanded="true" />
             <element signature="e#1171#1172#0" expanded="true" />
             <element signature="method#informAboutWho#0;class#ServerModelV2#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/si/isae/edu/lb/accov_1064n_2019/client/ClientSide2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="25" selection-start-line="25" selection-end-line="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/si/isae/edu/lb/accov_1064n_2019/client/ClientSide3.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="16" column="17" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
         </state>
       </provider>
     </entry>
