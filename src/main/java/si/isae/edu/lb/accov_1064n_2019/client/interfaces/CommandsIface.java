@@ -21,4 +21,5 @@ public interface CommandsIface {
     public void _who(ClientSocket clientSocket) throws NotConnected;
     public void _checkIfConnected(ClientModel clientModel)throws AlreadyConnected ;
     public void _talk(ClientSocket clientSocket, String message) throws NotConnected;
+    public void _joinRoom(ClientSocket clientSocket) throws NotConnected;
 }

@@ -14,7 +14,8 @@ public enum ClientCommands {
     _CONNECT("_connect"),
     _QUIT("_quit"),
     _TALK("_talk"),
-    _WHO("_who");
+    _WHO("_who"),
+    _ROOM_JOIN("_join");
     
     private final String command;
 

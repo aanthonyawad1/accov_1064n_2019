@@ -18,6 +18,7 @@ public class ClientModel implements Serializable , Comparable<String>{
     private String command;
     private String messageToServer;
     private String messageFromServer;
+    private String room;// used to set the room to connect to;
 
     public String getMessageFromServer() {
         return messageFromServer;
@@ -93,9 +94,13 @@ public class ClientModel implements Serializable , Comparable<String>{
                 ", port=" + port + '}';
     }
 
+    public String getRoom() { return room; }
+
+    public void setRoom(String room){this.room = room;}
+
     @Override
     public int compareTo(String t) {
        return this.name.compareTo(t);
     }
-    
+
 }

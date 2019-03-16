@@ -13,7 +13,7 @@ import java.net.SocketException;
 
 /**
  * @author Anthony
- *will be creating threads from the serverModel each thread keeps the conx alive leets tryy
+ *will be creating threads from the serverModel each thread keeps the conx alive lets tryy
  * and will contain the logic
  */
 public class ServerClientLink extends Thread{
@@ -61,6 +61,7 @@ public class ServerClientLink extends Thread{
                 serverModel.removeClosedSocket(clientSocket.getClientModel().getName());
                 continue;
             }
+
             if (currentModel.getCommand().equals(ServerCommands._SERVER_TO_CLIENT.toString())) {
                 System.out.println("sending message to client" + currentModel.getName());
                 //here the the model is set from the function sendMessageFromServer
@@ -69,6 +70,19 @@ public class ServerClientLink extends Thread{
                 currentModel.setCommand(ServerCommands._UNKNOWN.toString());
                 continue;
             }
+
+
+            if (currentModel.getCommand().equals(ServerCommands._ROOM_JOIN.toString())) {
+                String room = currentModel.getRoom();
+                System.out.println("user "+ currentModel.getName() +" joining room : " + room);
+                //here the the model is set from the function sendMessageFromServer
+                sendDataToClient();
+                System.out.println("end sending message client" + currentModel.getName());
+                currentModel.setCommand(ServerCommands._UNKNOWN.toString());
+                continue;
+            }
+
+
             //we set the status to unknown so we don't enter in the other statuses
             //else we stay in the while connected
         }

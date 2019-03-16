@@ -1,3 +1,4 @@
 -client KeyboardHandler fix system.in errors
-
+-working on rooms functionality added rooms server model and functions to create
+rooms and to list room still need to make a user join the room find the logic of it.
 

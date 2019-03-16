@@ -164,4 +164,23 @@ public class ClientSocket{
     public Object getSync() {
         return sync;
     }
+
+    public void joinRoom() {
+        try {
+            this.clientModel.setCommand(ServerCommands._ROOM_JOIN.toString());
+            socket = new Socket(clientModel.getMachine(),Integer.parseInt(clientModel.getPort()));
+            this.informServer(this.clientModel.getName() +" requested joining room" + this.clientModel.getRoom());
+
+            ObjectInputStream ois = getInput();
+            try {
+                clientModel = (ClientModel)ois.readObject();
+                System.out.println(clientModel.getMessageFromServer());
+            } catch (ClassNotFoundException ex) {
+                ex.printStackTrace();
+            }
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+
+    }
 }

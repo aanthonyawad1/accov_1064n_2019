@@ -60,5 +60,14 @@ public class ClientController implements CommandsIface{
     public void _talk(ClientSocket clientSocket,String message) throws NotConnected {
        clientSocket.talkToServer(message);
     }
-    
+
+    @Override
+    public void _joinRoom(ClientSocket clientSocket) throws NotConnected {
+        if(clientSocket.getClientModel().isIsConnected() == false)throw new NotConnected();
+        System.out.println("joining room "+ clientSocket.getClientModel().getRoom());
+        clientSocket.joinRoom();
+        System.out.println("done");
+
+    }
+
 }

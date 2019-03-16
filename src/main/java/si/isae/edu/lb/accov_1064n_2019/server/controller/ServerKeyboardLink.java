@@ -1,7 +1,9 @@
 package si.isae.edu.lb.accov_1064n_2019.server.controller;
 
 import si.isae.edu.lb.accov_1064n_2019.server.ServerCommands;
+import si.isae.edu.lb.accov_1064n_2019.server.model.RoomServerModel;
 import si.isae.edu.lb.accov_1064n_2019.server.model.ServerModel;
+import si.isae.edu.lb.accov_1064n_2019.server.util.Constants;
 
 import java.util.Scanner;
 
@@ -17,6 +19,10 @@ public class ServerKeyboardLink implements  Runnable {
     private String command="";
     private Scanner keyboard;
     private ServerModel serverModel;
+
+    // room static params
+    private static int roomPortCounter = Constants.MAIN_SERVER_PORT;
+
     public ServerKeyboardLink(ServerModel serverModel){
         this.serverModel = serverModel;
     }
@@ -42,7 +48,22 @@ public class ServerKeyboardLink implements  Runnable {
                 String message = serverModel.informAboutWho();
                 System.out.println(message);
                 continue;
-            }else {
+            }
+            else if(command.equals(ServerCommands._ROOM_CREATE.toString().toLowerCase())){
+                int roomPort = ++roomPortCounter ;
+                String roomName = keyboard.next();
+                if(roomName != null) {
+                    System.out.println("room name cant't be null");
+                }
+                RoomServerModel roomServerModel = new RoomServerModel(roomName,roomPort);
+                String rooms = serverModel.addRoom(roomServerModel);
+                if(rooms != null && rooms.length() > 0)
+                    System.out.println("\n\n available rooms:\n "+rooms);
+                else
+                    System.out.println("\n\n available rooms:\n "+rooms);
+                continue;
+            }
+            else {
                 System.out.println("UNKNOWN COMMAND");
                 System.out.println(SERVER_WELCOME_STRING_MANUAL);
             }

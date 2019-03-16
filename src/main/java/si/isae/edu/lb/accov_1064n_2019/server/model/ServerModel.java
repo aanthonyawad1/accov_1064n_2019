@@ -14,18 +14,24 @@ import si.isae.edu.lb.accov_1064n_2019.client.model.ClientModel;
 import si.isae.edu.lb.accov_1064n_2019.client.model.ClientSocket;
 import si.isae.edu.lb.accov_1064n_2019.server.ServerCommands;
 import si.isae.edu.lb.accov_1064n_2019.server.controller.ServerClientLink;
+import si.isae.edu.lb.accov_1064n_2019.server.exceptions.RoomCantCreateAnotherRoomException;
 
 /**
  *
  * @author Aanthony
  */
 public class ServerModel {
-    private ServerSocket serverSocket;
-    private Object sync = new Object();
-    private int port;
-    private String name;
-    private List<ServerClientLink> clientsLinks;
-    ServerClientLink serverClientLink;
+    protected ServerSocket serverSocket;
+    protected Object sync = new Object();
+    protected int port;
+    protected String name;
+    protected List<ServerClientLink> clientsLinks;
+    protected ServerClientLink serverClientLink;
+
+
+    private ArrayList<RoomServerModel> roomServerModels;
+
+
 
 
     public List<ServerClientLink>  getClientsLinks(){
@@ -105,18 +111,6 @@ public class ServerModel {
         return messageFromServer ;
     }
 
-//
-    //get socket readers and writers from DR pascal course youtube for Client Model
-    private ClientModel getInput(Socket clientSocket) throws IOException, ClassNotFoundException {
-        ObjectInputStream ois;
-        ois = new  ObjectInputStream(clientSocket.getInputStream());
-        return  (ClientModel) ois.readObject();
-    }
-    //changed in it so i can send the object ClientModel
-    public ObjectOutputStream getOutput(Socket clientSocket)throws IOException{
-        return new ObjectOutputStream(clientSocket.getOutputStream());
-    }
-
 
 
     public void removeClosedSocket(String name) {
@@ -133,7 +127,6 @@ public class ServerModel {
         for(final ServerClientLink clientLink : clientsLinks){
             if(clientLink.getClientSocket().getClientModel().getName().equals(name)){
                 found =true;
-
                 clientLink.sendMessageFromServer("Sorry but i was forced to kill you");
                 //we sleep so we dont get error while writing on the thread
                 try{TimeUnit.SECONDS.sleep(2);}catch (Exception e){}
@@ -166,5 +159,72 @@ public class ServerModel {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+
+    //get socket readers and writers from DR pascal course youtube for Client Model
+    private ClientModel getInput(Socket clientSocket) throws IOException, ClassNotFoundException {
+        ObjectInputStream ois;
+        ois = new  ObjectInputStream(clientSocket.getInputStream());
+        return  (ClientModel) ois.readObject();
+    }
+
+    //changed in it so i can send the object ClientModel
+    public ObjectOutputStream getOutput(Socket clientSocket)throws IOException{
+        return new ObjectOutputStream(clientSocket.getOutputStream());
+    }
+
+
+
+    //SERVER ROOMS FUNCTIONS
+    public String addRoom(RoomServerModel roomServerModel){
+        //checks if the object is a room or the main server.
+        try {
+            if (this instanceof RoomServerModel) throw new RoomCantCreateAnotherRoomException();
+        }catch(RoomCantCreateAnotherRoomException e){
+            String message = e.toString();
+            System.out.println(message);
+            return null;
+        }
+
+        // check if null
+       if( this.roomServerModels==null)
+           this.roomServerModels = new ArrayList<RoomServerModel>();
+       // check if exists
+       for (RoomServerModel room :this.roomServerModels){
+           if(room.name.equalsIgnoreCase(roomServerModel.name)){
+               System.out.println("Room name already exist,\n please ues another one.");
+               return null;
+           }
+       }
+       //create the room
+        this.roomServerModels.add(roomServerModel);
+       //notify all users
+        String message = "new Room added with name: "+roomServerModel.name+".";
+        System.out.println(message);
+        //notify all subscribed users to main server
+        for(ServerClientLink serverClientLink : this.clientsLinks){
+            serverClientLink.sendMessageFromServer(message);
+        }
+        return this.listRooms();
+    }
+
+    public String listRooms(){
+        //checks if the object is a room or the main server.
+        try {
+            if (this instanceof RoomServerModel) throw new RoomCantCreateAnotherRoomException();
+        }catch(RoomCantCreateAnotherRoomException e){
+            String message = e.toString();
+            System.out.println(message);
+            return null;
+        }
+
+        String result ="";
+        int i = 1;
+        for (RoomServerModel room :this.roomServerModels){
+           result +=  "room "+ i + " name: "+room.name;
+            i++;
+        }
+        return result;
     }
 }

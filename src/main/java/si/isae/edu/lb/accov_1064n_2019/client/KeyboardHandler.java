@@ -45,14 +45,28 @@ public class KeyboardHandler implements Runnable{
                    this.quit();
                 }else if(theCommand.equals(ClientCommands._CONNECT)){
                    this.connect();
-                }else {
+                }else if(theCommand.equals(ClientCommands._ROOM_JOIN)){
+                this.joinRoom();
+                }
+                else {
                     this.elseCommand();
                 }
                
             }
         }
     }
-    
+
+    private void joinRoom() {
+        System.out.println("quelle est est le nom de la room?");
+        String room = keyboard.next();
+        clientSocket.getClientModel().setRoom(room);
+        try {
+            commandsIface._joinRoom(clientSocket);
+        }catch (NotConnected ex){
+            System.out.println(ex.toString());
+        }
+    }
+
     //KEYBOARD TYPED FUNCTIONS
     public void connect(){
     try {
@@ -68,7 +82,7 @@ public class KeyboardHandler implements Runnable{
                 port = keyboard.nextInt();
                 break;
             }catch(Exception e){
-                //do nothing retry if not int 
+                //do nothing retry if not int
             }
         }
         clientSocket.getClientModel().build(name, machine , ""+port);
@@ -81,7 +95,7 @@ public class KeyboardHandler implements Runnable{
         System.out.println(ex.toString());
         clientSocket.getClientModel().setIsConnected(false);
     }
-    }
+}
     
     public void elseCommand(){
         System.out.println("UNKNOWN COMMAND");

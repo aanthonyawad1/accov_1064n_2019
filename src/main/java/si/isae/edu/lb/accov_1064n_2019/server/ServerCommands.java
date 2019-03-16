@@ -17,10 +17,11 @@ public enum ServerCommands {
     _KILL("_quit"),
     _TALK("_talk"),
     _SERVER_TO_CLIENT("_server_to_client"),
-    _WHO("_who");
-    
-    private final String command;
+    _WHO("_who"),
+    _ROOM_CREATE("_create"),
+    _ROOM_JOIN("_join");
 
+    private final String command;
     /**
      * @param c the base command the user wants to execute
      */
